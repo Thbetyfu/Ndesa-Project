@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ndesa-postgres
+    environment:
+      POSTGRES_DB: ndesa_dev
+      POSTGRES_USER: ndesa_user
+      POSTGRES_PASSWORD: ndesa_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - ndesa-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: ndesa-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ndesa-network
+
+  minio:
+    image: minio/minio:latest
+    container_name: ndesa-minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - ndesa-network
+
+volumes:
+  postgres_data:
+  redis_data:
+  minio_data:
+
+networks:
+  ndesa-network:
+    driver: bridge
