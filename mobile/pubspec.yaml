@@ -69,6 +69,8 @@ dev_dependencies:
   freezed: ^2.4.6
   json_serializable: ^6.7.1
   hive_generator: ^2.0.1
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.10
 
 # Force intl to use version from Flutter SDK
 dependency_overrides:
@@ -84,7 +86,21 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/Splash-Sreen/
 
   
   # Fonts
   # Google Fonts will be used via google_fonts package
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/LogoNdesa.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter_native_splash:
+  color: "#050708"
+  android_12:
+    color: "#050708"
+  android: true
+  ios: true

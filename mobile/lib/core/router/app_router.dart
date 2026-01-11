@@ -17,7 +17,10 @@ import '../../features/vacancy/presentation/screens/vacancy_screen.dart';
 import '../../features/notification/presentation/screens/notification_screen.dart';
 import '../../features/ai/presentation/screens/ai_chat_screen.dart';
 import '../../features/profile/presentation/screens/cv_screen.dart';
+import '../../features/profile/presentation/screens/cv_screen.dart';
 import '../../features/home/presentation/screens/village_fund_screen.dart';
+import '../../features/home/presentation/screens/progress_screen.dart';
+import '../../features/splash/presentation/screens/splash_screen.dart';
 import '../presentation/main_screen.dart';
 
 /// App Router Configuration
@@ -25,8 +28,9 @@ import '../presentation/main_screen.dart';
 /// Menggunakan GoRouter untuk navigation
 /// Semua routes didefinisikan di sini
 final appRouter = GoRouter(
-  initialLocation: '/login',
+  initialLocation: '/splash',
   routes: [
+    GoRoute(path: '/splash', builder: (context, state) => const SplashScreen()),
     // Authentication routes
     GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
     GoRoute(path: '/register', builder: (context, state) => const RegisterScreen()),
@@ -55,6 +59,10 @@ final appRouter = GoRouter(
             GoRoute(
               path: 'village-fund',
               builder: (context, state) => const VillageFundScreen(),
+            ),
+            GoRoute(
+              path: 'progress',
+              builder: (context, state) => const ProgressScreen(),
             ),
           ],
         ),

@@ -130,8 +130,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildProgressCard() {
-    return _buildGradientContainer(
-      child: Column(
+    return GestureDetector(
+      onTap: () => context.go('/home/progress'),
+      child: _buildGradientContainer(
+        child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -247,6 +249,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
         ],
+      ),
       ),
     );
   }

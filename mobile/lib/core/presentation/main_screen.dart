@@ -53,10 +53,10 @@ class MainScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildNavItem(context, 0, 'assets/icons/nav_home.svg', 'Home', selectedIndex),
-              _buildNavItem(context, 1, 'assets/icons/nav_lowongan.svg', 'Lowongan', selectedIndex),
-              _buildNavItem(context, 2, 'assets/icons/nav_AI.svg', 'AI', selectedIndex),
-              _buildNavItem(context, 3, 'assets/icons/nav_profile.svg', 'Profile', selectedIndex),
+              Expanded(child: _buildNavItem(context, 0, 'assets/icons/nav_home.svg', 'Home', selectedIndex)),
+              Expanded(child: _buildNavItem(context, 1, 'assets/icons/nav_lowongan.svg', 'Lowongan', selectedIndex)),
+              Expanded(child: _buildNavItem(context, 2, 'assets/icons/nav_AI.svg', 'AI', selectedIndex)),
+              Expanded(child: _buildNavItem(context, 3, 'assets/icons/nav_profile.svg', 'Profile', selectedIndex)),
             ],
           ),
         ),
@@ -86,11 +86,10 @@ class MainScreen extends StatelessWidget {
       },
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
         child: SvgPicture.asset(
           assetPath,
-          width: 80,
-          height: 60,
+          height: 50,
           colorFilter: ColorFilter.mode(
             isSelected ? Colors.white : const Color(0xFF6B7280),
             BlendMode.srcIn,
